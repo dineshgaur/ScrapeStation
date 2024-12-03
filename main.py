@@ -1,5 +1,13 @@
-from fastapi import FastAPI
 from app.routes.scrape import router as scrape_router
+from fastapi import FastAPI
+import sys
+import os
+
+# Add the project root directory to sys.path
+project_root = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(project_root)
+print("Updated Python Path:", sys.path)
+
 
 app = FastAPI(
     title="ScrapeStation",
