@@ -1,5 +1,5 @@
 # Static authentication token for the API
-API_TOKEN = "your_static_token"
+API_TOKEN = "916157cf8137818a714786ccd2cacf2372073bd1e2b2822606dc57c49c59f0a9en"
 
 # Redis configuration
 REDIS_HOST = "localhost"
