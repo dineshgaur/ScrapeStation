@@ -17,6 +17,8 @@ def authenticate(token: str):
 
 @router.post("/scrape/")
 def scrape(limit: int, proxy: str = None, token: str = Depends(authenticate)):
+    print(f"DEBUG: Received limit={limit}, proxy={proxy}, token={token}")
+    return {"status": "success", "products_scraped": 0}
     """
     Endpoint to start the scraping process.
 

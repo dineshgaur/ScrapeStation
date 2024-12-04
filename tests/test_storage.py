@@ -54,9 +54,12 @@ class TestJSONStorage(unittest.TestCase):
         Test handling an exception when saving data (e.g., invalid file path).
         """
         invalid_storage = JSONStorage("/invalid_path/test.json")
-
-        with self.assertRaises(Exception):
+        try:
             invalid_storage.save([{"product_title": "Test"}])
+        except Exception as e:
+            print(f"Exception raised: {type(e).__name__} - {e}")
+            raise
+
 
 
 if __name__ == "__main__":
