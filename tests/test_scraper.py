@@ -34,7 +34,12 @@ class TestScraper(unittest.TestCase):
         """
         Test that scrape_page handles HTTP errors gracefully.
         """
-        mock_get.return_value.status_code = 500
+        # Mock the response object
+        mock_response = mock_get.return_value
+        mock_response.status_code = 500
+        mock_response.text = ""  # Add a valid empty string for text
+
+        # Test scraper behavior
         scraper = Scraper("http://example.com")
         products = scraper.scrape_page(page_number=1)
         self.assertEqual(products, [])
